@@ -30,7 +30,7 @@ public class StartupEndpointCaller implements CommandLineRunner {
                 "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Wahlmodul",
                 "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Wahlpflichtmodul",
 
-                "http://localhost:8082/ai/getProgramContentCompetenciesData");
+                "http://localhost:8082/ai/getProgramContentCompetenciesData",
                 "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Pflichtmodul",
                 "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Wahlmodul (anrechenbar)",
                 "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Wahlpflichtmodul",
