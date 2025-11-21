@@ -4,10 +4,10 @@ COPY . .
 RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:21-jre
-WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+WORKDIR /module-content-tracker-backend
+COPY --from=build /module-content-tracker-backend/target/*.jar module-content-tracker-backend.jar
 
 
-ENTRYPOINT ["./mvnw", "-Dspring.profiles.active=railway", "-jar", "/app.jar"]
+ENTRYPOINT ["./mvnw", "-Dspring.profiles.active=railway", "-jar", "/module-content-tracker-backend.jar"]
 
 EXPOSE 8082
