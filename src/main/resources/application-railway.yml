@@ -12,7 +12,7 @@ spring:
 
   datasource:
     url: ${DATABASE_URL}
-    username: ${POSTGRES_USER}
+    username: jdbc:${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
