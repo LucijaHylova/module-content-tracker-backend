@@ -1,0 +1,57 @@
+networks:
+  default:
+    driver: bridge
+
+services:
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.29.1
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+    environment:
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      QUERY_DEFAULTS_LIMIT: '25'
+      ENABLE_MODULES: 'text2vec-mistral'
+      CLUSTER_HOSTNAME: 'bfh'
+      TEXT2VEC_MISTRAL_API_KEY: '${MISTRAL_AI_TOKEN}'
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: module-content-tracker
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF-AUTH_BASIC_ENABLED=false
+      - GF_AUTH_PASSWORD_POLICY=false
+      - GF_AUTH_OAUTH_AUTO_LOGIN=true
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - ./grafana/config/custom.ini:/etc/grafana/grafana.ini
+    depends_on:
+      - postgres
+    networks:
+      - default
+
+volumes:
+  pgdata:
+  weaviate_data:

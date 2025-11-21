@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: Module-Content-Tracker-RAG
+  ai:
+    retry:
+      max-attempts: 10
+    mistralai:
+      api-key: ${MISTRAL_AI_TOKEN}
+      embedding:
+        options:
+          model: mistral-embed
+      chat:
+        options:
+          model: mistral-small-latest
+          response-format: "json_object"
+    vectorstore:
+      weaviate:
+        host: localhost:8080
+        scheme: http
+        object-class: Module
+        filter-field:
+          department: Text
+          program: Text
+          module_type: Text

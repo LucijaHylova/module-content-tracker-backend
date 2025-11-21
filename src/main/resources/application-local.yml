@@ -1,0 +1,40 @@
+server:
+  port: 8082
+  servlet:
+    session:
+      cookie:
+        secure: false
+        same-site: None
+spring:
+  application:
+    name: Module-Content-Tracker-RAG (local)
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/module-content-tracker
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    with-credentials: true
+isa-modules:
+  path: classpath:isa_modules/isa_modules.xlsx
+
+security:
+  admin:
+    username: admin
+    password: admin
+  admin_import:
+    username: admin_import
+    password: admin_import
+  jwt:
+    secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+    expiration-time: 604800000  # 7 Tage

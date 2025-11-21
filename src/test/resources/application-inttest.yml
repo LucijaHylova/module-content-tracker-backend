@@ -1,0 +1,54 @@
+server:
+  port: 8082
+  servlet:
+    session:
+      cookie:
+        secure: false
+        same-site: Lax
+spring:
+  application:
+    name: Module-Content-Tracker-RAG (test)
+  ai:
+    mistralai:
+      api-key: wDEdg2xn2aAiKpSnrq7glAiIxpkzzaIz
+      embedding:
+        options:
+          model: mistral-embed
+      chat:
+        options:
+          model: mistral-small-latest
+          temperature: 0.3
+          top-p: 0.9
+    vectorstore:
+      weaviate:
+        host: localhost:8080
+        scheme: http
+        object-class: Module
+        filter-field:
+          department: Text
+          program: Text
+          module_type: Text
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+springdoc:
+  api-docs:
+    path: -docs
+  swagger-ui:
+    path: /swagger-ui.html
+debug: true
+isa-modules:
+  path: classpath:isa_modules/isa_modules_test.xlsx
+security:
+  admin:
+    username: admin
+    password: admin
+  admin_import:
+    username: admin_import
+    password: admin_import
+  jwt:
+    secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+    expiration-time: 20000
+

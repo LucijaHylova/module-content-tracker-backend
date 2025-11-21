@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:8082
+@username = admin
+@password = admin
+@passwordencoded = $2a$10$r4pTZZoRSfIMKbUymavrsuTnC8no36bfjsdE.B78HemxTbDHydS5C
+@token = YWRtaW46YWRtaW4=
+@file=classpath:isa_modules/isa_modules_extra_short.xlsx
+
+
+
+### 1. Get Module Content Data
+GET {{baseUrl}}/ai/getModuleContentData
+Accept: application/json
+
+
+### 2. Find Modules by Keywords
+GET {{baseUrl}}/ai/findByKeywords?query=KI%20Grundlagen&department=Informatik&program=Bachelor
+Accept: application/json
+
+
+
+### 3. Chatbot – Frage beantworten
+GET {{baseUrl}}/ai/chat?query=Wie%20funktioniert%20das%20Modul%20MT101%3F
+Accept: application/json
+
+
+### 4. Module Import
+POST {{baseUrl}}/modules/import/file={{file}}
+Accept: text/plain
+Content-Type: multipart/form-data
+Authorization: Basic {{username}} {{password}}
+
+#### 4. Module Import
+#POST {{baseUrl}}/modules/import
+#Accept: text/plain
+#Content-Type: multipart/form-data
+#Authorization: Basic {{token}}
+
+
+
+

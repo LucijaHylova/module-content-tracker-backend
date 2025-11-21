@@ -1,0 +1,17 @@
+server:
+  port: 8082
+  servlet:
+    session:
+      cookie:
+        secure: true
+        same-site: Strict
+spring:
+  application:
+    name: Module-Content-Tracker-RAG (prod)
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    with-credentials: true
