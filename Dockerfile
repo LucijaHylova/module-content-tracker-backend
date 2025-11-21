@@ -1,13 +1,14 @@
+# Build stage
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY . .
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
+# Runtime stage
 FROM eclipse-temurin:21-jre
-WORKDIR /module-content-tracker-backend
-COPY --from=build /module-content-tracker-backend/target/*.jar module-content-tracker-backend.jar
-
-
-ENTRYPOINT ["./mvnw", "-Dspring.profiles.active=railway", "-jar", "/module-content-tracker-backend.jar"]
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8082
+ENTRYPOINT ["java", "-Dspring.profiles.active=railway", "-jar", "/app/app.jar"]
