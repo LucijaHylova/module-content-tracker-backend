@@ -7,7 +7,7 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-CMD["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=railway"]
+ENTRYPOINT["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=railway"]
 
 
 EXPOSE 8082
