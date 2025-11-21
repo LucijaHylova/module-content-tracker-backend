@@ -64,6 +64,7 @@ public class ModuleLoader implements CommandLineRunner {
        load(this.moduleReader.read());
     }
 
+
     @Transactional
     public void load(List<Document> documents) throws JsonProcessingException {
 
