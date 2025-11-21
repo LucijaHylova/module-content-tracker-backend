@@ -25,18 +25,18 @@ public class StartupEndpointCaller implements CommandLineRunner {
     @Override
     public void run(String... args) {
         List<String> endpoints = List.of(
-//                "http://localhost:8082/ai/getProgramContentShortDescriptionData",
-//                "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Pflichtmodul",
-//                "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Wahlmodul",
-//                "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Wahlpflichtmodul",
-//
-                "http://localhost:8082/ai/getProgramContentCompetenciesData");
-//                "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Pflichtmodul",
-//                "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Wahlmodul (anrechenbar)",
-//                "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Wahlpflichtmodul",
+                "http://localhost:8082/ai/getProgramContentShortDescriptionData",
+                "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Pflichtmodul",
+                "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Wahlmodul",
+                "http://localhost:8082/ai/getProgramContentShortDescriptionData?moduleType=Wahlpflichtmodul",
 
-//                "http://localhost:8082/ai/getModuleContentData",
-//                "http://localhost:8082/ai/getDepartmentContentCompetenciesData");
+                "http://localhost:8082/ai/getProgramContentCompetenciesData");
+                "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Pflichtmodul",
+                "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Wahlmodul (anrechenbar)",
+                "http://localhost:8082/ai/getProgramContentCompetenciesData?moduleType=Wahlpflichtmodul",
+
+                "http://localhost:8082/ai/getModuleContentData",
+                "http://localhost:8082/ai/getDepartmentContentCompetenciesData");
 
         for (String endpoint : endpoints) {
             try {
