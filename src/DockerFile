@@ -7,8 +7,8 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-# Default profile = local
+# <-- Wichtig!!
 ENV SPRING_PROFILES_ACTIVE=local
 
-EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+EXPOSE 8082
+CMD ["java", "-Dserver.port=${PORT}", "-jar", "app.jar"]
