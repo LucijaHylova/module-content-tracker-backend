@@ -10,4 +10,4 @@ COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-Dspring.profiles.active=railway", "-jar", "/app.jar"]
 
 EXPOSE 8082
-CMD ["java", "-Dserver.port=${PORT}", "-jar", "app.jar"]
+
