@@ -1,0 +1,47 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    session:
+      cookie:
+        secure: false
+        same-site: None
+
+spring:
+  application:
+    name: Module-Content-Tracker-RAG (railway)
+
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    with-credentials: true
+
+isa-modules:
+  path: classpath:isa_modules/isa_modules.xlsx
+
+security:
+  admin:
+    username: admin
+    password: admin
+  admin_import:
+    username: admin_import
+    password: admin_import
+  jwt:
+    secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+    expiration-time: 604800000  # 7 Tage
