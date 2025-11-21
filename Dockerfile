@@ -1,14 +1,10 @@
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY . .
-RUN mvn clean package -DskipTests
+RUN ./mvnw clean package -DskipTests -q
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-
-ENTRYPOINT["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=railway"]
-
-
 EXPOSE 8082
-
+ENTRYPOINT ["java", "-jar", "/app/app.jar", "--spring.profiles.active=railway"]
