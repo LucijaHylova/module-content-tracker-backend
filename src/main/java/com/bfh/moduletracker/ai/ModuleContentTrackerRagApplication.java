@@ -1,7 +1,5 @@
 package com.bfh.moduletracker.ai;
 
-import javax.sql.DataSource;
-
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,8 +26,6 @@ public class ModuleContentTrackerRagApplication {
         return new InMemoryChatMemory();
     }
 
-    @PostConstruct
-    public void init(@Autowired DataSource ds) throws Exception {
-        System.out.println(">>> JDBC URL = " + ds.getConnection().getMetaData().getURL());
-    }
+    @Autowired DataSource ds;
+
 }
