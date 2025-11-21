@@ -1,10 +1,8 @@
 package com.bfh.moduletracker.ai;
 
-import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -25,7 +23,4 @@ public class ModuleContentTrackerRagApplication {
     InMemoryChatMemory chatMemory() {
         return new InMemoryChatMemory();
     }
-
-    @Autowired DataSource ds;
-
 }
