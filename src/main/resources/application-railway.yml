@@ -11,8 +11,8 @@ spring:
     name: Module-Content-Tracker-RAG (railway)
 
   datasource:
-    url: jdbc:postgresql://postgres:ccsElYJjVPgLMejVEbaUuFFaHdZvctNw@postgres.railway.internal:5432/railway
-    username: ${POSTGRES_USER}
+    url: ${DATABASE_URL}
+    username: ${POSTGRES_USER} 
     password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
