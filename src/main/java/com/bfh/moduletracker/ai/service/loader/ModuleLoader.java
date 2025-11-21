@@ -55,13 +55,13 @@ public class ModuleLoader implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-    //    load();
-        System.out.println("Skipping ModuleLoader");
+     load();
+     System.out.println("Skipping ModuleLoader");
     }
 
     @Transactional
     public void load() throws JsonProcessingException {
-     //   load(this.moduleReader.read());
+       load(this.moduleReader.read());
     }
 
     @Transactional
