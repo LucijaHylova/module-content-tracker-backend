@@ -10,7 +10,7 @@ spring:
     name: Module-Content-Tracker-RAG (local)
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/module-content-tracker
+    url: ${{ Postgres.DATABASE_URL }}
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
