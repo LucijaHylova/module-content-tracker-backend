@@ -17,6 +17,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
+
 public class VectorStoreLoad {
 
     private final VectorStore vectorStore;
@@ -32,11 +33,6 @@ public class VectorStoreLoad {
         this.batchingStrategy = batchingStrategy;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void onReady() {
-        run();
-    }
-    
     public void run() {
 
         weaviateClient.schema().classDeleter()

@@ -87,7 +87,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ai/**", "/modules/all", "/content/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/authenticate").permitAll()
-                        .requestMatchers(HttpMethod.POST, "test/reset").permitAll()
+                        .requestMatchers(HttpMethod.POST, "test/reset", "vectorStore/load").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ai/compare/analysis").hasAnyRole("USER_WITH_PROFILE")
                         .requestMatchers(HttpMethod.GET, "/users/all", "/users/all/details", "/users/me/details", "/users/get", "/users/get/details").hasAnyRole("ADMIN")
