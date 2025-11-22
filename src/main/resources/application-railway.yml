@@ -3,15 +3,15 @@ server:
   servlet:
     session:
       cookie:
-        secure: true
+        secure: false
         same-site: Lax
 
 spring:
   application:
     name: Module-Content-Tracker-RAG (railway)
-  main:
-    web-application-type: servlet
-    keep-alive: true
+#  main:
+#    web-application-type: servlet
+#    keep-alive: true
 
 #  datasource:
 #    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
