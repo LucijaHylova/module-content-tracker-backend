@@ -41,6 +41,8 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
+    with-credentials: true
+
 
 #    enabled: true
 #    with-credentials: true
