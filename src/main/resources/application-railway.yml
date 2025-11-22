@@ -37,10 +37,11 @@ spring:
         format_sql: true
 
 springdoc:
-  api-docs:
-    path: /api-docs
+#  api-docs:
+#    path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
+    enabled: true
     with-credentials: true
 
 #    url: "https://module-content-tracker-backend-production.up.railway.app"
