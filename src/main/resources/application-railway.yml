@@ -9,6 +9,9 @@ server:
 spring:
   application:
     name: Module-Content-Tracker-RAG (railway)
+  main:
+    web-application-type: servlet
+    keep-alive: true
 
   datasource:
     url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
