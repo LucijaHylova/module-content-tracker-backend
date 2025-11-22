@@ -41,7 +41,7 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
-    config-url: /api-docs/swagger-config.json
+
 #    enabled: true
 #    with-credentials: true
 #    url: "https://module-content-tracker-backend-production.up.railway.app"
