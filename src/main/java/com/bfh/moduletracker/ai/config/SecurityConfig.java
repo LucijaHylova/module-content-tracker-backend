@@ -85,9 +85,17 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
 //                        .requestMatchers(HttpMethod.GET, "/", "/error").permitAll()
-//                        .requestMatchers(HttpMethod.GET, "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/", "/v3/api-docs", "/v3/api-docs/**", "/swagger-ui/index.html", "/swagger-ui/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/ai/**", "/modules/all", "/content/**").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/", "/v3/api-docs", "/v3/api-docs/**", "/swagger-ui/index.html", "/swagger-ui/**").permitAll()
+                                .requestMatchers(
+                                        "/",
+                                        "/error",
+                                        "/swagger-ui.html",
+                                        "/swagger-ui/**",
+                                        "/v3/api-docs",
+                                        "/v3/api-docs/**"
+                                ).permitAll()
+
+                                .requestMatchers(HttpMethod.GET, "/ai/**", "/modules/all", "/content/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/authenticate").permitAll()
                         .requestMatchers(HttpMethod.POST, "test/reset", "vectorStore/load","/fakerUserGenerator/generate").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
