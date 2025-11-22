@@ -41,9 +41,9 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
-    enabled: true
-    with-credentials: true
-    url: "https://module-content-tracker-backend-production.up.railway.app"
+#    enabled: true
+#    with-credentials: true
+#    url: "https://module-content-tracker-backend-production.up.railway.app"
 
 isa-modules:
   path: classpath:isa_modules/isa_modules.xlsx
