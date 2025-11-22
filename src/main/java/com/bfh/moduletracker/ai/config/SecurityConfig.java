@@ -85,7 +85,8 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
 //                        .requestMatchers(HttpMethod.GET, "/", "/error").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
+                        .requestMatchers( "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ai/**", "/modules/all", "/content/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/authenticate").permitAll()
                         .requestMatchers(HttpMethod.POST, "test/reset", "vectorStore/load").permitAll()
