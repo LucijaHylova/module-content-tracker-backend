@@ -1,8 +1,10 @@
 package com.bfh.moduletracker.ai;
 
+import com.bfh.moduletracker.ai.service.loader.VectorStoreLoad;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -12,6 +14,15 @@ import org.springframework.context.annotation.Bean;
 public class ModuleContentTrackerRagApplication {
 
     private static final Logger log = LoggerFactory.getLogger(ModuleContentTrackerRagApplication.class);
+
+    @Autowired
+    private final VectorStoreLoad vectorStoreLoad;
+
+    public ModuleContentTrackerRagApplication(VectorStoreLoad vectorStoreLoad) {
+
+        this.vectorStoreLoad = vectorStoreLoad;
+        vectorStoreLoad.run();
+    }
 
     public static void main(String[] args) {
         log.atInfo().log("Starting application");
@@ -23,4 +34,5 @@ public class ModuleContentTrackerRagApplication {
     InMemoryChatMemory chatMemory() {
         return new InMemoryChatMemory();
     }
+
 }
