@@ -32,19 +32,15 @@ spring:
 springdoc:
 
   api-docs:
-    path: /api-docs
-    config-url: /api-docs/swagger-config
+    path: /v3/api-docs
+    enabled: true
   swagger-ui:
     path: /swagger-ui.html
     with-credentials: true
+    enabled: true
+    url: "https://module-content-tracker-backend-production.up.railway.app"
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
-openapi:
-  servers:
-    - url: "https://module-content-tracker-backend-production.up.railway.app"
-
-
-
 
 isa-modules:
   path: classpath:isa_modules/isa_modules.xlsx
