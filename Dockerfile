@@ -29,7 +29,7 @@
 #EXPOSE 8080
 #ENTRYPOINT ["java", "-Dspring.profiles.active=railway", "-jar", "app.jar"]
 
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:21-jdk AS build
 COPY ../target/Module-Content-Tracker-RAG-0.0.1-SNAPSHOT.jar .
 RUN chown 666:666 Module-Content-Tracker-RAG-0.0.1-SNAPSHOT.jar
 USER 666
