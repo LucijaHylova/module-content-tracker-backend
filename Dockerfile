@@ -30,6 +30,7 @@
 #ENTRYPOINT ["java", "-Dspring.profiles.active=railway", "-jar", "app.jar"]
 
 FROM eclipse-temurin:21-jdk AS build
+WORKDIR /module-content-tracker-backend
 COPY ../target/Module-Content-Tracker-RAG-0.0.1-SNAPSHOT.jar .
 RUN chown 666:666 Module-Content-Tracker-RAG-0.0.1-SNAPSHOT.jar
 USER 666
