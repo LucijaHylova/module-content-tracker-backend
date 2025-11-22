@@ -17,24 +17,15 @@ public class ModuleContentTrackerRagApplication {
 
     private static final Logger log = LoggerFactory.getLogger(ModuleContentTrackerRagApplication.class);
 
-    @Autowired
-    private final VectorStoreLoad vectorStoreLoad;
 
     public ModuleContentTrackerRagApplication(VectorStoreLoad vectorStoreLoad) {
 
-        this.vectorStoreLoad = vectorStoreLoad;
-   
     }
-    @PostConstruct
-    @Profile("railway")
-    public void initVectorStore() {
-        vectorStoreLoad.run();
-    }
+
 
     public static void main(String[] args) {
         log.atInfo().log("Starting application");
         SpringApplication.run(ModuleContentTrackerRagApplication.class, args);
-
     }
 
     @Bean

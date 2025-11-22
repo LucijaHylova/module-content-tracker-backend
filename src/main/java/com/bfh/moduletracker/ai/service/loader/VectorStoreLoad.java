@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.BatchingStrategy;
 import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,7 +32,11 @@ public class VectorStoreLoad {
         this.batchingStrategy = batchingStrategy;
     }
 
-
+    @EventListener(ApplicationReadyEvent.class)
+    public void onReady() {
+        run();
+    }
+    
     public void run() {
 
         weaviateClient.schema().classDeleter()
