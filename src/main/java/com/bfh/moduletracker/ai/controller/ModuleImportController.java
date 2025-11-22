@@ -8,6 +8,7 @@ import com.bfh.moduletracker.ai.service.loader.ModuleReader;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,7 @@ public class ModuleImportController {
     private final UserRepository userEntityRepository;
 
 
-    public ModuleImportController(ModuleLoader moduleLoader, ModuleReader moduleReader, UserRepository userEntityRepository) {
+    public ModuleImportController(@Autowired(required = false) ModuleLoader moduleLoader, ModuleReader moduleReader, UserRepository userEntityRepository) {
         this.moduleLoader = moduleLoader;
         this.moduleReader = moduleReader;
         this.userEntityRepository = userEntityRepository;
