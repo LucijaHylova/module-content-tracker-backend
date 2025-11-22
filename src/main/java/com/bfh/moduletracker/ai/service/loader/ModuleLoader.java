@@ -56,7 +56,6 @@ public class ModuleLoader implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception {
      load();
-     System.out.println("Skipping ModuleLoader");
     }
 
     @Transactional

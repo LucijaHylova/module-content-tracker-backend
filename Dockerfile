@@ -27,7 +27,7 @@ WORKDIR /module-content-tracker-backend
 COPY --from=build /module-content-tracker-backend/target/*.jar Module-Content-Tracker-RAG-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8080
-CMD exec java -Dspring.profiles.active=local -jar Module-Content-Tracker-RAG-0.0.1-SNAPSHOT.jar
+CMD exec java -Dspring.profiles.active=railway -jar Module-Content-Tracker-RAG-0.0.1-SNAPSHOT.jar
 #
 #FROM eclipse-temurin:21-jdk AS build
 #WORKDIR /module-content-tracker-backend
