@@ -45,8 +45,10 @@ springdoc:
     path: /swagger-ui.html
     with-credentials: true
     enabled: true
+    url: https://module-content-tracker-backend-production.up.railway.app
     config-url: /v3/api-docs/swagger-config
     disable-swagger-default-url: true
+
 
 #    url: "https://module-content-tracker-backend-production.up.railway.app"
   default-consumes-media-type: application/json
