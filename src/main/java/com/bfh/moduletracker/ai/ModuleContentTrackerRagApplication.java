@@ -23,7 +23,7 @@ public class ModuleContentTrackerRagApplication {
     public ModuleContentTrackerRagApplication(VectorStoreLoad vectorStoreLoad) {
 
         this.vectorStoreLoad = vectorStoreLoad;
-        vectorStoreLoad.run();
+   
     }
     @PostConstruct
     @Profile("railway")
