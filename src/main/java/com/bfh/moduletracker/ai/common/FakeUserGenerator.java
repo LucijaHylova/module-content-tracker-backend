@@ -48,6 +48,7 @@ public class FakeUserGenerator {
     private final PasswordEncoder passwordEncoder;
     private final UserModuleService userModuleService;
     private final AuthService authService;
+    private final UserModuleRepository userModuleRepository;
 
     public FakeUserGenerator(
             UserRepository userRepository,
@@ -58,15 +59,17 @@ public class FakeUserGenerator {
         this.passwordEncoder = passwordEncoder;
         this.userModuleService = userService;
         this.authService = authService;
+        this.userModuleRepository = userModuleRepository;
     }
 
 
     @Transactional
     public void run() throws InvalidModuleAssignmentException, UserModuleAlreadyExistException, UserAlreadyExistException {
-        userRepository.deleteAll();
+
 
         if (userRepository.count() != 0) {
-            return;
+            userRepository.deleteAll();
+            userModuleRepository.deleteAll();
         }
 
         Faker faker = new Faker();
