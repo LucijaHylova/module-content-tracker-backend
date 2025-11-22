@@ -64,6 +64,7 @@ public class FakeUserGenerator {
     @Transactional
     public void run() throws InvalidModuleAssignmentException, UserModuleAlreadyExistException, UserAlreadyExistException {
         userRepository.deleteAll();
+        
         if (userRepository.count() != 0) {
             return;
         }
