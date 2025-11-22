@@ -28,9 +28,9 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addConverter(moduleTypeFilterTagConverter);
         registry.addConverter(studyDepartmentConverter);
     }
-
-    @Bean
-    public ForwardedHeaderFilter forwardedHeaderFilter() {
-        return new ForwardedHeaderFilter();
-    }
+//
+//    @Bean
+//    public ForwardedHeaderFilter forwardedHeaderFilter() {
+//        return new ForwardedHeaderFilter();
+//    }
 }
