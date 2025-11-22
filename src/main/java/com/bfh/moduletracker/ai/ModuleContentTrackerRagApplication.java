@@ -1,6 +1,7 @@
 package com.bfh.moduletracker.ai;
 
 import com.bfh.moduletracker.ai.service.loader.VectorStoreLoad;
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
@@ -9,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class ModuleContentTrackerRagApplication {
@@ -21,6 +23,11 @@ public class ModuleContentTrackerRagApplication {
     public ModuleContentTrackerRagApplication(VectorStoreLoad vectorStoreLoad) {
 
         this.vectorStoreLoad = vectorStoreLoad;
+        vectorStoreLoad.run();
+    }
+    @PostConstruct
+    @Profile("railway")
+    public void initVectorStore() {
         vectorStoreLoad.run();
     }
 
