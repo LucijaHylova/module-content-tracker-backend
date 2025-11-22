@@ -87,7 +87,7 @@ public class SecurityConfig {
 //                        .requestMatchers(HttpMethod.GET, "/", "/error").permitAll()
 //                        .requestMatchers(HttpMethod.GET, "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.GET,
-                                "/", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**","/api/docs", "/api/docs/**" ).permitAll()
+                                "/", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**","/api/docs", "/api/docs/**", "/favicon.ico", "/swagger-ui/index.html"  ).permitAll()
                         .requestMatchers(HttpMethod.GET, "/ai/**", "/modules/all", "/content/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/authenticate").permitAll()
                         .requestMatchers(HttpMethod.POST, "test/reset", "vectorStore/load","/fakerUserGenerator/generate").permitAll()
