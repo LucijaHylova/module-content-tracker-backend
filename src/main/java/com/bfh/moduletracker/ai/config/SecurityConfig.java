@@ -84,7 +84,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/", "/error").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/", "/error").permitAll()
                         .requestMatchers(HttpMethod.GET, "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ai/**", "/modules/all", "/content/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/authenticate").permitAll()
@@ -117,7 +117,7 @@ public class SecurityConfig {
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With", "Access-Control-Request-Method", "*"));
         configuration.setAllowCredentials(true);
         configuration.setExposedHeaders(List.of("Set-Cookie"));
-//        configuration.addAllowedOriginPattern("*");
+        configuration.addAllowedOriginPattern("*");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 
