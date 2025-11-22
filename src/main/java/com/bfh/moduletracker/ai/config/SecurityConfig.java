@@ -73,9 +73,9 @@ public class SecurityConfig {
         return new JwtAuthenticationFilter(jwtService, userDetailsService);
     }
 
-// JwtAuthenticationFilter jwtAuthenticationFilter
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http ) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter ) throws Exception {
         http
 
                 .httpBasic(AbstractHttpConfigurer::disable)
@@ -105,8 +105,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/modules/import").hasAnyRole("ADMIN_IMPORT")
                         .anyRequest().authenticated()
                 )
-                .authenticationProvider(authenticationProvider());
-//                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
